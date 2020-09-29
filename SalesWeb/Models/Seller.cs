@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace SalesWeb.Models
@@ -11,10 +12,14 @@ namespace SalesWeb.Models
         public int Id { get; set; }
         public string Name { get; set; }
         [DisplayName("E-mail")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [DisplayName("Birth Date")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
         [DisplayName("Base Salary")]
+        [DisplayFormat(DataFormatString ="{0:c2}")]
         public double BaseSalary { get; set; }
         public Department Department { get; set; }
         public int DepartmentId { get; set; }
